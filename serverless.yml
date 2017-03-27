@@ -55,8 +55,18 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  showUser:
+    handler: handler.showUser
+    events:
+      - http:
+          path: users/{id}
+          method: get
+  createUser:
+    handler: handler.createUser
+    events:
+      - http:
+          path: users/create
+          method: post
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
